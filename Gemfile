@@ -38,3 +38,4 @@ gem 'dotenv-rails'
 gem 'database_cleaner', '~> 1.6', '>= 1.6.1'
 gem 'rails_12factor', group: :production
 gem 'pundit', '~> 1.1'
+gem 'ckeditor', '~> 4.2', '>= 4.2.4'
