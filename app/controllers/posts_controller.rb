@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:edit, :update, :show, :delete]
+  before_action :authenticate_admin!, except: [:index, :show]
+  before_action :find_post, only: [:edit, :update, :show, :destroy]
 
   def index
     @posts = Post.get_all
@@ -9,17 +10,17 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new 
+    @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
 
     if @post.save
-      flash[:notice] = "Your post was created successfully"
+      flash[:notice] = I18n.t('forms.messages.success')
       redirect_to post_path(@post)
     else
-      flash.now[:alert] = "Your post was not created"
+      flash.now[:alert] = I18n.t('forms.messages.error')
       render :new
     end
   end
@@ -30,21 +31,19 @@ class PostsController < ApplicationController
   def update
 
     if @post.update(post_params)
-      flash[:notice] = "Your post was updated successfully"
+      flash[:notice] = I18n.t('forms.messages.success')
       redirect_to post_path(@post)
     else
-      flash.now[:alert] = "Your post was not updated"
+      flash.now[:alert] = I18n.t('forms.messages.error')
       render :edit
     end
   end
 
   def destroy
-    if @post.destroy
-      flash[:notice] = "Your post was deleted successfully"
-      redirect_to posts_path
-    else
-      flash.now[:alert] = "Your post was not deleted"
-    end
+    @post.destroy
+
+    flash[:notice] = I18n.t('forms.messages.success')
+    redirect_to posts_path
   end
 
   private
@@ -56,7 +55,7 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = 'The post you were looking for could not be found.'
+    flash[:alert] = t('extras.post_not_found')
     redirect_to posts_path
   end
 end

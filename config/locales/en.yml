@@ -20,4 +20,24 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      post:
+        title: "Title"
+        body: "Body"
+        new: "New Post"
+  forms:
+    messages:
+      success: "Operation successfully"
+      error: "The operation did not work correctly"
+    buttons:
+      edit: "Edit"
+      submit: "Submit"
+      show: "Show"
+      delete: "Delete"
+  extras:
+    more: "READ MORE"
+    home: "Home"
+    logout: "Logout"
+    login: "Login"
+    post_not_found: "The post you were looking for could not be found."

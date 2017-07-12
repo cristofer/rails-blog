@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    attributes:
+      post:
+        title: "Titulo"
+        body: "Cuerpo"
+        new: "Nuevo Post"
+  forms:
+    messages:
+      success: "Post creado exitosamente!"
+    buttons:
+      edit: "Editar"
+      submit: "Enviar"
+      show: "Ver"
+      delete: "Eliminar"
+  extras:
+    more: "VER MÁS"
+    home: "Inicio"
+    logout: "Salir"
+    login: "Iniciar Sesión"
+    post_not_found: "El post que buscas no pudo ser encontrado."
