@@ -33,5 +33,10 @@ module Blog
     config.active_record.raise_in_transactional_callbacks = true
     # I18n.available_locales = [:en, :es]
     config.i18n.default_locale = :en
+
+    # Heroku
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w(ckeditor/*)
   end
 end
