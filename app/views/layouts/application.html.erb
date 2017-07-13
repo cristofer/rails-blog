@@ -8,12 +8,42 @@
 </head>
 <body>
 
-<%= render "layouts/navigation" %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<%= render "layouts/navigation" if admin_signed_in? %>
 
-<div class="container-fluid">
-  <%= yield %>
+<% if admin_signed_in? %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+<% end %>
+
+<div class="" id="main-content">
+  <div class="left-panel">
+
+    <%= link_to root_path do %>
+      <%= image_tag '', class: 'profile-pic' %>
+    <% end %>
+
+    <div class="links">
+      <div class="profile-name">
+        <h1><%= link_to 'Cris R.', root_path %></h1>
+      </div>
+
+      <div class="profile-locale">
+        <h3><%= locale %></h3>
+      </div>
+
+      <div class="social-icons">
+        <%= social_links('https://de.linkedin.com/in/crreyes', 'linkedin-square') %>
+        <%=  social_links('https://www.xing.com/profile/Cristofer_Reyes', 'xing-square') %>
+        <%=  social_links('https://github.com/cristofer', 'github-square') %>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="right-panel">
+    <%= yield %>
+  </div>
 </div>
 
 </body>

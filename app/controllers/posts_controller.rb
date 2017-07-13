@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = t('extras.post_not_found')
     redirect_to posts_path

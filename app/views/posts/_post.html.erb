@@ -4,7 +4,7 @@
     <h6><%= post.created_at.strftime('%d %b, %Y') %></h6>
   </div>
 
-  <div><%=  raw post.body.truncate(300) %></div>
+  <div><%=  raw post.body.truncate(50) %></div>
 
   <div class="text-center">
     <%= link_to t('extras.more'), post_path(post) %>
@@ -16,5 +16,6 @@
     <%= link_to t('forms.buttons.delete'), post_path(post), class: "btn btn-danger", data: {:confirm => "Are you sure?"}, method: :delete %>
   <% end %>
 
-  <hr />
+  <hr>
+
 </div>

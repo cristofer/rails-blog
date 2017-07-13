@@ -1,2 +1,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+
+#main-content, html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.left-panel {
+  float: left;
+  width: 25%;
+  background: #f2ebe1;
+  height: 100%;
+  overflow: auto;
+}
+
+.right-panel {
+  float: left;
+  width: 75%;
+  background: #f7f3ed;
+  height: 100%;
+  overflow: auto;
+}
+
+.profile-pic {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url('https://www.gravatar.com/avatar/1aef980b1ee5710ed2d8ac869bac0965?s=200');
+  float: right;
+  margin: 15px 15px;
+  border: ridge;
+  overflow: hidden;
+}
+
+.links {
+  float: right;
+  margin: 15px 15px;
+  text-align: right;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #d3d3d3;
+}
