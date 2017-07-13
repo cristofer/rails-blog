@@ -2,6 +2,7 @@
   <div class="text-center">
     <h2><%= post.title %></h2>
     <h6><%= post.created_at.strftime('%d %b, %Y') %></h6>
+    <h6><%= render post.tags %></h6>
   </div>
 
   <div><%=  raw post.body.truncate(50) %></div>

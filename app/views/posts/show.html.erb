@@ -1,6 +1,9 @@
 <div class="col-sm-11 col-xs-12 blog-content">
   <h2 class="text-center"><%= @post.title %></h2>
   <h5 class="text-center"><%= @post.created_at.strftime('%d %b, %Y') %></h5>
+  <h6 class="text-center"><%= render @post.tags %></h6>
+
+  <br />
 
   <div><%= raw @post.body %></div>
 </div>

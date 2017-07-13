@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   translates :title, :body
   extend FriendlyId
   friendly_id :title, :use => :slugged
+  acts_as_taggable_on :tags
 
   scope :get_all, -> { order(created_at: :desc) }
 end
