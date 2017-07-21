@@ -1,5 +1,5 @@
 == README
 
-This is a very simple blog project, I built it for my personal use (check it out[https://cris-blog.herokuapp.com]).
+This is a very simple blog project, I built it for my personal use (check it out[https://cristof.io]).
 
 As you can see there is no option for creating new accounts, or for posting comments (eventually I will add those functionalities).
