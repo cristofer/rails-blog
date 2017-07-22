@@ -43,3 +43,4 @@ en:
     post_not_found: "The post you were looking for could not be found."
     en_version: "English version"
     es_version: "Spanish version"
+  not_found: "The post couldn't be found"

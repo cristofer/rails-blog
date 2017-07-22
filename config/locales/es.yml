@@ -21,3 +21,4 @@ es:
     post_not_found: "El post que buscas no pudo ser encontrado."
     en_version: "Versión en Inglés"
     es_version: "Versión en Español"
+  not_found: "El post no pudo ser encontrado"

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_admin!, except: [:index, :show]
+  before_action :authenticate_admin!, except: [:index, :show, :not_found]
   before_action :find_post, only: [:edit, :update, :show, :destroy]
 
   def index
@@ -44,6 +44,9 @@ class PostsController < ApplicationController
 
     flash[:notice] = I18n.t('forms.messages.success')
     redirect_to posts_path
+  end
+
+  def not_found
   end
 
   private

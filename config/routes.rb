@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :posts
     resources :tags, only: [:index, :show]
 
-    get '*path' => redirect('/')
+    get '*path', to: 'posts#not_found'
   end
 end
