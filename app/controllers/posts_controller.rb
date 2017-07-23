@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :show, :destroy]
 
   def index
-    @posts = Post.get_all
+    @posts = Post.get_all_with_tags_translations
   end
 
   def show
