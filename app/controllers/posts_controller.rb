@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show, :not_found]
   before_action :find_post, only: [:edit, :update, :show, :destroy]
+  before_action :tags, only: [:new, :edit]
 
   def index
     @posts = Post.get_all_with_tags_translations
@@ -11,7 +12,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @tags = Tag.get_all.pluck(:name).join(", ")
   end
 
   def create
@@ -61,5 +61,9 @@ class PostsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = t('extras.post_not_found')
     redirect_to posts_path
+  end
+
+  def tags
+    @tags = Tag.get_all.pluck(:name).join(", ")
   end
 end
