@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @tags = Tag.get_all.pluck(:name).join(", ")
   end
 
   def create
