@@ -1,14 +1,13 @@
 class PostsController < ApplicationController
-  before_action :authenticate_admin!, except: [:index, :show, :not_found]
-  before_action :find_post, only: [:edit, :update, :show, :destroy]
-  before_action :tags, only: [:new, :edit]
+  before_action :authenticate_admin!, except: %i[index show not_found]
+  before_action :find_post, only: %i[edit update show destroy]
+  before_action :tags, only: %i[new edit]
 
   def index
     @posts = Post.get_all_with_tags_translations
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = Post.new
@@ -26,11 +25,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-
     if @post.update(post_params)
       flash[:notice] = I18n.t('forms.messages.success')
       redirect_to post_path(@post)
@@ -47,8 +44,7 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  def not_found
-  end
+  def not_found; end
 
   private
 
@@ -64,6 +60,6 @@ class PostsController < ApplicationController
   end
 
   def tags
-    @tags = Tag.get_all.pluck(:name).join(", ")
+    @tags = Tag.get_all.pluck(:name).join(', ')
   end
 end

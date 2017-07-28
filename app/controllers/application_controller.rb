@@ -8,19 +8,18 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     locale = params[:locale]
-    I18n.locale = (["es", "en"].include?locale) ? locale : I18n.default_locale
+    I18n.locale = %w[es en].include? locale ? locale : I18n.default_locale
   end
 
   def default_url_options
-    { :locale => I18n.locale == I18n.default_locale ? params[:locale] : I18n.locale }
+    { locale: I18n.locale == I18n.default_locale ? params[:locale] : I18n.locale }
   end
 
   protected
 
-  #configure permitted parameters for devise
+  # configure permitted parameters for devise
   def configure_permitted_parameters
-    added_attrs = [:email, :password, :password_confirmation, :remember_me, :avatar, :avatar_cache]
+    added_attrs = %i[email password password_confirmation remember_me avatar avatar_cache]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
   end
-
 end
